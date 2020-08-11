@@ -4,7 +4,7 @@ import React from 'react';
 function CustomButton(props) {
     return(
       
-    <button className={props.class}>{props.text}</button>
+    <button className={props.class} onClick={props.onclick}>{props.text}</button>
 
     )
 }
