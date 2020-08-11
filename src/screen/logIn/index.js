@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomButton from '../../components/buttonComponent'
 
@@ -20,7 +20,7 @@ function LogIn(props){
 
     return(
         <div>
-            <div style={{width: '300px'}}>
+            <div style={{width: '300px', margin: '200px', boxShadow: '0px 4px 4px 2px'}}>
             <input type= 'text' placeholder='Enter Email' className='form-control' onChange={updateEmail}/>
             <input type= 'password' placeholder='Enter Password' className='form-control' onChange={updatePassword}/>
             <CustomButton text='Log In' class='btn btn-success' onclick={() => props.updateUser({email,password})}/>
