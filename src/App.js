@@ -40,12 +40,12 @@ function App() {
     
 
 
-      {/* {!user ? <LogIn updateUser={updateUser}/>  : <Home/>  } */}
-      {!user && <LogIn updateUser={updateUser} />}
+      {!user ? <LogIn updateUser={updateUser}/>  : <Home/>  }
+      {/* {!user && <LogIn updateUser={updateUser} />}
 
       {user && !Home && <Forms/> }
 
-      {user && Home && <Home homepage={homepage}/>}
+      {user && Home && <Home homepage={homepage}/>} */}
 
       {/* <Forms/> */}
 
