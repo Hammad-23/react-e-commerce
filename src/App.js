@@ -6,13 +6,20 @@ import CustomButton from './components/buttonComponent'
 import Background from './images/e-commerce.jpg';
 // import Cards from './components/cardComponent/'
 import LogIn from './screen/logIn'
+import Home from './screen/home'
+import Forms from './screen/form'
+
+
 
 
 function App() {
 
-  const [user,setUser] = useState(false)
- 
+  const [homepage,setHomepage] = useState(true) 
 
+
+  const [user,setUser] = useState(false)
+   
+  
   const updateUser = function(userObj){
     console.log(userObj)
 
@@ -21,50 +28,9 @@ function App() {
 
   }
 
-  const home= function(){
 
 
-    return (
-      <div>
-  
-        <div style={{backgroundColor: 'darkblue', display: 'flex', justifyContent: 'space-evenly', color: 'white', fontSize: '20px', height: '70px' }}>
-        <div style={{paddingTop: '20px'}}>Home</div>
-        <div style={{paddingTop: '20px'}}>Products</div>
-        <div style={{paddingTop: '20px'}}>Carts</div>
-        <div style={{paddingTop: '20px'}}>Contact Us</div>
-        <div style={{paddingTop: '20px', display: 'flex'}}><input type='text' placeholder='Search here' className='form-control'/>
-        <CustomButton class= 'btn btn-secondary' text= 'search'/>
-        
-        </div>
-        <div style={{paddingTop: '20px'}}>Log In</div>
-        </div>
-  
-        <div style={{ background: `url(${Background})`, backgroundSize: 'cover', backgroundPositionY: 'center', height: '500px', backgroundAttachment: 'fixed'}}>
-          
-  
-        </div>
-  
-        <div style={{backgroundColor: '#dedede'}}>
-  
-          {/* <Cards /> */}
-  
-        </div>
-  
-  
-  
-  
-      </div> 
 
-      
-       
-      
-  
-      
-  
-  
-    );
-
-  }
 
 
   return(
@@ -74,7 +40,14 @@ function App() {
     
 
 
-      {!user ? <LogIn updateUser={updateUser}/>  : home() }
+      {/* {!user ? <LogIn updateUser={updateUser}/>  : <Home/>  } */}
+      {!user && <LogIn updateUser={updateUser} />}
+
+      {user && !Home && <Forms/> }
+
+      {user && Home && <Home homepage={homepage}/>}
+
+      {/* <Forms/> */}
 
 
 
