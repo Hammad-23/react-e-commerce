@@ -17,7 +17,7 @@ import Forms from '../form';
 
        const employeData = function(allData){
 
-        setData([allData])
+        setData([...data, allData])
         setSelect(false)
 
 
