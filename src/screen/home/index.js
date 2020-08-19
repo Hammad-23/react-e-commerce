@@ -11,14 +11,17 @@ import Forms from '../form';
 
    function Home (props){
        console.log(props)
+
+       const [btn,setBtn] = useState(false)
        
 
-       const [data,setData] = useState([{}])
+       const [data,setData] = useState([])
 
        const employeData = function(allData){
 
         setData([...data, allData])
         setSelect(false)
+        setBtn(true)
 
 
        }
@@ -67,7 +70,12 @@ import Forms from '../form';
      />
 </Container>
 
-{select ? <Forms updateSelect={setSelect} employeData={employeData}/> :     <div style={{margin: '300px'}}>
+{select ?
+
+
+
+
+<Forms updateSelect={setSelect} employeData={employeData}/> :     <div style={{margin: '300px'}}>
           <h1>Employees Data</h1>
           {/* <input type='text' placeholder='Enter' onChange={naam} value={text}/>
           <CustomButton text='add' class='btn btn-primary' onclick={addItem}/> */}
@@ -81,22 +89,42 @@ import Forms from '../form';
             })}
           </ol> */}
 
-          <table >
-              <thead style={{border: 'solid black'}}>
+          <table border = '1'>
+              <thead >
                   <tr style={{fontSize : '30px'}}>
                   <td>Name</td>
                   <td style={{paddingLeft: '80px'}}>JOB</td>
                   <td style={{paddingLeft: '80px'}}>Salary</td>
+                  <td style={{paddingLeft: '80px'}}>Options</td>
                   </tr>
               </thead>
-              <tbody style={{border: 'solid black'}}>
+              <tbody >
                   {data.map(function(item){
                       return(
+                        
                         <tr>
                         <td>{item.namee}</td>
                       <td style={{paddingLeft: '80px'}}>{item.job}</td>
-                      <td style={{paddingLeft: '80px'}}>{item.salary}</td>
+                      <td style={{paddingLeft: '80px'}}>{item.salary}
+
+
+                      
+                      </td>
+
+                   
+                   
+                   <td>
+                      { btn ? <div> < CustomButton text='Edit' class='btn btn-primary'/>
+                   <CustomButton text='Delete' class='btn btn-secondary'/> </div> : null  }
+
+                   </td>
+
+
                     </tr>
+
+                    
+                  
+                    
 
                       )
 
@@ -108,9 +136,13 @@ import Forms from '../form';
 
 
           </table>
+  
 
+  
 
         </div>
+
+        
         
         }
   
